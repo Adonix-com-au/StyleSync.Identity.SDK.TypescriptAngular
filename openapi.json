@@ -1,0 +1,1281 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "StyleSync API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/admin/user/{userId}/name": {
+      "put": {
+        "tags": ["AdminUser"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "title": "Guid",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserNameApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserNameApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserNameApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/user/{userId}/email": {
+      "put": {
+        "tags": ["AdminUser"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "title": "Guid",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserEmailApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserEmailApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserEmailApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/user/{userId}/phone": {
+      "put": {
+        "tags": ["AdminUser"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "title": "Guid",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserPhoneNumberApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserPhoneNumberApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserPhoneNumberApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUserApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUserApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUserApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginUserResponseResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginUserResponseResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginUserResponseResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/tenant-login": {
+      "post": {
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginTenantApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginTenantApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginTenantApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginTenantResponseResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginTenantResponseResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginTenantResponseResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/check": {
+      "post": {
+        "tags": ["Auth"],
+        "parameters": [
+          {
+            "name": "permissionCode",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "title": "String",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginTenantResponseResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginTenantResponseResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginTenantResponseResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tenant": {
+      "post": {
+        "tags": ["Tenant"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/tenant/users": {
+      "post": {
+        "tags": ["Tenant"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTenantMemberApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTenantMemberApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTenantMemberApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/tenant/groups": {
+      "post": {
+        "tags": ["Tenant"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantGroupApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantGroupApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTenantGroupApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/tenant/groups/{groupId}/members": {
+      "post": {
+        "tags": ["Tenant"],
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTenantGroupMemberApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTenantGroupMemberApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTenantGroupMemberApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/tenant/groups/{groupId}": {
+      "delete": {
+        "tags": ["Tenant"],
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "title": "Guid",
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/tenant/groups/{groupId}/permissions": {
+      "post": {
+        "tags": ["Tenant"],
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "title": "Guid",
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTenantGroupPermissionApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTenantGroupPermissionApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTenantGroupPermissionApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/user": {
+      "post": {
+        "tags": ["User"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/user/name": {
+      "put": {
+        "tags": ["User"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserNameApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserNameApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserNameApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/user/email": {
+      "put": {
+        "tags": ["User"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserEmailApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserEmailApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserEmailApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/user/phone": {
+      "put": {
+        "tags": ["User"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserPhoneNumberApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserPhoneNumberApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserPhoneNumberApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/user/confirm-email": {
+      "post": {
+        "tags": ["User"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmUserEmailApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmUserEmailApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmUserEmailApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/user/confirm-phone": {
+      "post": {
+        "tags": ["User"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmUserPhoneNumberApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmUserPhoneNumberApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmUserPhoneNumberApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/user/tenants": {
+      "get": {
+        "tags": ["User"],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserTenantsQueryResponseResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserTenantsQueryResponseResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserTenantsQueryResponseResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/version": {
+      "get": {
+        "tags": ["Version"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AddTenantGroupMemberApiRequest": {
+        "title": "AddTenantGroupMemberApiRequest",
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "title": "Guid",
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "title": "Guid",
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddTenantGroupPermissionApiRequest": {
+        "title": "AddTenantGroupPermissionApiRequest",
+        "type": "object",
+        "properties": {
+          "permissionId": {
+            "title": "Guid",
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddTenantMemberApiRequest": {
+        "title": "AddTenantMemberApiRequest",
+        "type": "object",
+        "properties": {
+          "userId": {
+            "title": "Guid",
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddressApiRequest": {
+        "title": "AddressApiRequest",
+        "type": "object",
+        "properties": {
+          "country": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "street": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "zipCode": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddressResource": {
+        "title": "AddressResource",
+        "type": "object",
+        "properties": {
+          "country": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "street": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "zipCode": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfirmUserEmailApiRequest": {
+        "title": "ConfirmUserEmailApiRequest",
+        "type": "object",
+        "properties": {
+          "token": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfirmUserPhoneNumberApiRequest": {
+        "title": "ConfirmUserPhoneNumberApiRequest",
+        "type": "object",
+        "properties": {
+          "token": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateTenantApiRequest": {
+        "title": "CreateTenantApiRequest",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateTenantGroupApiRequest": {
+        "title": "CreateTenantGroupApiRequest",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateUserApiRequest": {
+        "title": "CreateUserApiRequest",
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "addressApi": {
+            "$ref": "#/components/schemas/AddressApiRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetUserTenantsQueryResponse": {
+        "title": "GetUserTenantsQueryResponse",
+        "type": "object",
+        "properties": {
+          "owned": {
+            "title": "List<TenantResource>",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TenantResource"
+            },
+            "nullable": true
+          },
+          "memberOf": {
+            "title": "List<TenantResource>",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TenantResource"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetUserTenantsQueryResponseResult": {
+        "title": "Result<GetUserTenantsQueryResponse>",
+        "type": "object",
+        "properties": {
+          "messages": {
+            "title": "List<String>",
+            "type": "array",
+            "items": {
+              "title": "String",
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "title": "Boolean",
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/GetUserTenantsQueryResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginTenantApiRequest": {
+        "title": "LoginTenantApiRequest",
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "title": "Guid",
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginTenantResponse": {
+        "title": "LoginTenantResponse",
+        "type": "object",
+        "properties": {
+          "token": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserResource"
+          },
+          "tenant": {
+            "$ref": "#/components/schemas/TenantResource"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginTenantResponseResult": {
+        "title": "Result<LoginTenantResponse>",
+        "type": "object",
+        "properties": {
+          "messages": {
+            "title": "List<String>",
+            "type": "array",
+            "items": {
+              "title": "String",
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "title": "Boolean",
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/LoginTenantResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginUserApiRequest": {
+        "title": "LoginUserApiRequest",
+        "type": "object",
+        "properties": {
+          "email": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginUserResponse": {
+        "title": "LoginUserResponse",
+        "type": "object",
+        "properties": {
+          "token": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserResource"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginUserResponseResult": {
+        "title": "Result<LoginUserResponse>",
+        "type": "object",
+        "properties": {
+          "messages": {
+            "title": "List<String>",
+            "type": "array",
+            "items": {
+              "title": "String",
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "title": "Boolean",
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/LoginUserResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "title": "ProblemDetails",
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "title": "Nullable<Int32>",
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": {
+          "title": "Object"
+        }
+      },
+      "TenantResource": {
+        "title": "TenantResource",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Guid",
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateUserEmailApiRequest": {
+        "title": "UpdateUserEmailApiRequest",
+        "type": "object",
+        "properties": {
+          "email": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateUserNameApiRequest": {
+        "title": "UpdateUserNameApiRequest",
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateUserPhoneNumberApiRequest": {
+        "title": "UpdateUserPhoneNumberApiRequest",
+        "type": "object",
+        "properties": {
+          "phoneNumber": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserResource": {
+        "title": "UserResource",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Guid",
+            "type": "string",
+            "format": "uuid"
+          },
+          "firstName": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "title": "String",
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "$ref": "#/components/schemas/AddressResource"
+          },
+          "lastModifiedUtc": {
+            "title": "Nullable<DateTime>",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdTimeUtc": {
+            "title": "Nullable<DateTime>",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Format: Bearer {token}",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ]
+}

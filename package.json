@@ -1,6 +1,6 @@
 {
-  "name": "style-sync.identity.sdk.typescript-angular",
-  "version": "0.0.0",
+  "name": "@stylesync/identity-sdk-typescript-angular",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

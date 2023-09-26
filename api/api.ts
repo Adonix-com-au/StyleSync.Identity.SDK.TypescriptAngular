@@ -1,0 +1,11 @@
+export * from './adminUser.service';
+import { AdminUserService } from './adminUser.service';
+export * from './auth.service';
+import { AuthService } from './auth.service';
+export * from './tenant.service';
+import { TenantService } from './tenant.service';
+export * from './user.service';
+import { UserService } from './user.service';
+export * from './version.service';
+import { VersionService } from './version.service';
+export const APIS = [AdminUserService, AuthService, TenantService, UserService, VersionService];
